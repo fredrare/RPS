@@ -135,7 +135,11 @@ export default function Layout() {
         functionName: "play",
         args: [move],
         value: bet,
-        gasPrice: parseInt((await publicClient.getGasPrice()).toString()) * 1.4,
+        gasPrice: BigInt(
+          Math.floor(
+            parseInt((await publicClient.getGasPrice()).toString()) * 1.4
+          )
+        ),
         abi,
       })
       console.log(request)
@@ -180,7 +184,11 @@ export default function Layout() {
         account: address,
         address: game as `0x${string}`,
         functionName: "j2Timeout",
-        gasPrice: parseInt((await publicClient.getGasPrice()).toString()) * 1.4,
+        gasPrice: BigInt(
+          Math.floor(
+            parseInt((await publicClient.getGasPrice()).toString()) * 1.4
+          )
+        ),
         abi,
       })
       await wallet.data?.writeContract(request)
@@ -194,7 +202,11 @@ export default function Layout() {
         account: address,
         address: game as `0x${string}`,
         functionName: "j1Timeout",
-        gasPrice: parseInt((await publicClient.getGasPrice()).toString()) * 1.4,
+        gasPrice: BigInt(
+          Math.floor(
+            parseInt((await publicClient.getGasPrice()).toString()) * 1.4
+          )
+        ),
         abi,
       })
       await wallet.data?.writeContract(request)
@@ -210,7 +222,11 @@ export default function Layout() {
         address: game as `0x${string}`,
         functionName: "solve",
         args: [move, salt],
-        gasPrice: parseInt((await publicClient.getGasPrice()).toString()) * 1.4,
+        gasPrice: BigInt(
+          Math.floor(
+            parseInt((await publicClient.getGasPrice()).toString()) * 1.4
+          )
+        ),
         abi,
       })
       await wallet.data?.writeContract(request)
@@ -235,7 +251,7 @@ export default function Layout() {
       >
         Rock-Paper-Scissors-Lizard-Spock
       </a>
-      <ConnectWallet address={address} />
+      <ConnectWallet address={address as string} />
       {game && (
         <span className="text-sm text-gray-500">
           Game URL:
