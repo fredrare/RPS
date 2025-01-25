@@ -40,7 +40,8 @@ export default function Layout() {
   // Generate a random salt on load
   useEffect(() => {
     // Execution in secure environments allows us to generate cryptographically secure random numbers
-    const salt = window.crypto.getRandomValues(new Uint32Array(1))[0]
+    const [saltA, saltB] = window.crypto.getRandomValues(new Uint32Array(2))
+    const salt = saltA * saltB
     const hash = keccak256(numberToHex(salt))
     setSalt(hexToBigInt(hash))
   }, [])
