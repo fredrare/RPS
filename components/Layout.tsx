@@ -29,7 +29,6 @@ export default function Layout() {
   const [salt, setSalt] = useState<bigint>()
   // Start the bet with a default value of 5000 wei
   const [bet, setBet] = useState<bigint>()
-  const openTime = new Date().getTime()
   const wallet = useWalletClient()
   const { address } = useAccount()
   const [player1, setPlayer1] = useState<`0x${string}`>()
@@ -41,7 +40,7 @@ export default function Layout() {
   useEffect(() => {
     // Execution in secure environments allows us to generate cryptographically secure random numbers
     const [saltA, saltB] = window.crypto.getRandomValues(new Uint32Array(2))
-    const salt = saltA * saltB
+    const salt = BigInt(saltA) * BigInt(saltB)
     const hash = keccak256(numberToHex(salt))
     setSalt(hexToBigInt(hash))
   }, [])
