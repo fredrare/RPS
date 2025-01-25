@@ -135,7 +135,7 @@ export default function Layout() {
         functionName: "play",
         args: [move],
         value: bet,
-        gasPrice: ((await publicClient.getGasPrice()) * 3n) / 2n,
+        gasPrice: ((await publicClient.getGasPrice()) * 11n) / 10n,
         abi,
       })
       console.log(request)
@@ -157,7 +157,7 @@ export default function Layout() {
         args: [moveHash, opponent],
         account: address,
         value: bet,
-        gasPrice: ((await publicClient.getGasPrice()) * 3n) / 2n,
+        gasPrice: ((await publicClient.getGasPrice()) * 11n) / 10n,
         abi,
       })
       if (!txHash) return
@@ -176,7 +176,7 @@ export default function Layout() {
         account: address,
         address: game as `0x${string}`,
         functionName: "j2Timeout",
-        gasPrice: ((await publicClient.getGasPrice()) * 3n) / 2n,
+        gasPrice: ((await publicClient.getGasPrice()) * 11n) / 10n,
         abi,
       })
       await wallet.data?.writeContract(request)
@@ -190,7 +190,7 @@ export default function Layout() {
         account: address,
         address: game as `0x${string}`,
         functionName: "j1Timeout",
-        gasPrice: ((await publicClient.getGasPrice()) * 3n) / 2n,
+        gasPrice: ((await publicClient.getGasPrice()) * 11n) / 10n,
         abi,
       })
       await wallet.data?.writeContract(request)
@@ -206,7 +206,7 @@ export default function Layout() {
         address: game as `0x${string}`,
         functionName: "solve",
         args: [move, salt],
-        gasPrice: ((await publicClient.getGasPrice()) * 3n) / 2n,
+        gasPrice: ((await publicClient.getGasPrice()) * 11n) / 10n,
         abi,
       })
       await wallet.data?.writeContract(request)
