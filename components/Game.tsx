@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Lizard, Paper, Rock, Scissors, Spock } from "./Icons"
-import { call } from "viem/actions"
 
 // Custom type to make key exclusions
 type Exclusive<T> = {
@@ -129,7 +128,9 @@ const Game = ({ isTurn, callback, salt, bet, setBet, state }: GameProps) => {
             </div>
             <div className="flex items-center gap-2">
               <div className="flex flex-col gap-2 text-sm text-wrap break-words w-3/4">
-                <span className="font-bold">Save this confirmation value:</span>
+                <span className="font-bold">
+                  Save this confirmation value BEFORE sending the transaction:
+                </span>
                 <p className="font-mono select-all p-2 border rounded-lg text-gray-700 border-gray-300">
                   {btoa(
                     JSON.stringify({

@@ -1,11 +1,10 @@
-import { useAccount, useDisconnect, useEnsAvatar, useEnsName } from "wagmi"
+import { useAccount, useDisconnect, useEnsName } from "wagmi"
 import { Logout, Wallet } from "./Icons"
 
 export function Account() {
-  const { address, connector } = useAccount()
+  const { address } = useAccount()
   const { disconnect } = useDisconnect()
   const { data: ensName } = useEnsName({ address })
-  const { data: ensAvatar } = useEnsAvatar({ name })
 
   const formattedAddress = formatAddress(address)
 

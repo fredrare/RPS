@@ -235,7 +235,7 @@ export default function Layout() {
       >
         Rock-Paper-Scissors-Lizard-Spock
       </a>
-      <ConnectWallet />
+      <ConnectWallet address={address} />
       {game && (
         <span className="text-sm text-gray-500">
           Game URL:
