@@ -140,7 +140,6 @@ export default function Layout() {
       })
       console.log(request)
       await wallet.data?.writeContract(request)
-      window.location.reload()
     } catch (error) {
       console.error(error)
     }
@@ -181,7 +180,6 @@ export default function Layout() {
         abi,
       })
       await wallet.data?.writeContract(request)
-      window.location.reload()
     } catch (error) {
       console.error(error)
     }
@@ -196,7 +194,6 @@ export default function Layout() {
         abi,
       })
       await wallet.data?.writeContract(request)
-      window.location.reload()
     } catch (error) {
       console.error(error)
     }
@@ -213,7 +210,6 @@ export default function Layout() {
         abi,
       })
       await wallet.data?.writeContract(request)
-      window.location.reload()
     } catch (error) {
       console.error(error)
     }
